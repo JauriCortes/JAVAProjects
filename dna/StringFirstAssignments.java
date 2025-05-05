@@ -120,6 +120,7 @@ public class StringFirstAssignments {
             int ocurrences = 0;
             int index = 0;
 
+            //busca cuando la substring "stringb" aparece en la string "stringa"
             while ((index = stringa.indexOf(stringb, index)) != -1) {     
                 ocurrences++;
                 index++;
@@ -131,24 +132,38 @@ public class StringFirstAssignments {
             return true;
         }
 
+        public String lastPart(String stringa, String stringb) {
+
+            int index = stringa.indexOf(stringb);
+            if (index == -1) {
+                return stringa;
+            }
+            else {
+                return stringa.substring(index+stringb.length(), stringa.length());
+            }
+        }
+
+
         public void testing () {
             String[][] testCases = {
-                {"by", "A story by Abby Long"},
-                {"a", "banana"},
-                {"atg", "ctgtatgta"}
+                {"A story by Abby Long", "by"},
+                {"banana", "a"},
+                {"ctgtatgta", "atg"}
             };
     
             for (String[] testCase  : testCases) {
     
-                String stringa = testCase[1];
-                String stringb = testCase[0];
+                String stringa = testCase[0];
+                String stringb = testCase[1];
                 System.out.println("String a: " + stringa);
                 System.out.println("String b: " + stringb);
     
                 boolean areTheretwoOcurrences = twoOcurrences(stringa, stringb);
                 
                 System.out.println("Are there 2 ocurrences? : " + areTheretwoOcurrences);
-    
+                
+
+                System.out.println("The part of the string after " + stringb + " in " + stringa + " is " + lastPart(stringa, stringb));
             }
         }
     }
