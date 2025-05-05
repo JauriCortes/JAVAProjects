@@ -1,6 +1,9 @@
 package dna;
 
+import java.net.URLPermission;
 import java.util.concurrent.BlockingQueue;
+
+import edu.duke.*;
 
 public class StringFirstAssignments {
 
@@ -57,6 +60,9 @@ public class StringFirstAssignments {
 
         StringFirstAssignments.part3 pr3 = new StringFirstAssignments().new part3();
         pr3.testing();
+
+        StringFirstAssignments.part4 pr4 = new StringFirstAssignments().new part4();
+        pr4.printLinks();
     }
 
     public class  part2 {
@@ -168,4 +174,16 @@ public class StringFirstAssignments {
         }
     }
 
+    public class part4 {
+
+        public void printLinks() {
+
+            URLResource url = new URLResource("https://www.dukelearntoprogram.com/course2/data/manylinks.html");
+            for (string str : url.lines()) {
+    
+                System.out.println(str);
+    
+            }
+        }
+    }
 }
