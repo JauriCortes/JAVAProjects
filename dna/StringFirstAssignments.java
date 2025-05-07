@@ -34,11 +34,7 @@ public class StringFirstAssignments {
         public void testSimpleGene() {
     
             String[] testCases = {  
-                "ATGGTATGGGGTAGAA", 
-                "TAGGGTAGGTTAGTAA", 
-                "AGGTAGGTGGGTAGGT",
-                "ATGAGTTGAAAGTAA", 
-                "ATGGTAGGTGATAA"
+                "AAATGCCCTAACTAGATTAAGAAACC"
             };
     
             for (String dna : testCases) {
@@ -53,13 +49,13 @@ public class StringFirstAssignments {
 
     public static void main(String[] args) {
         StringFirstAssignments.part1 pr = new StringFirstAssignments().new part1();
-        pr.testSimpleGene();
+        //pr.testSimpleGene();
 
         StringFirstAssignments.part2 pr2 = new StringFirstAssignments().new part2();
-        pr2.testSimpleGene();
+        //pr2.testSimpleGene();
 
         StringFirstAssignments.part3 pr3 = new StringFirstAssignments().new part3();
-        pr3.testing();
+        //pr3.testing();
 
         StringFirstAssignments.part4 pr4 = new StringFirstAssignments().new part4();
         pr4.printLinks();
@@ -179,11 +175,24 @@ public class StringFirstAssignments {
         public void printLinks() {
 
             URLResource url = new URLResource("https://www.dukelearntoprogram.com/course2/data/manylinks.html");
-            for (string str : url.lines()) {
+            for (String str : url.lines()) {
     
-                System.out.println(str);
-    
+                String lowercaseLine = str.toLowerCase();
+                int index = 0;
+                if ((index = lowercaseLine.indexOf("youtube.com", index)) != -1) {
+
+                    int linkStartindex = str.lastIndexOf("\"", index)+1;
+                    int linkEndindex = str.indexOf("\"", index);
+
+                    String link = str.substring(linkStartindex, linkEndindex);
+                    System.out.println(link);
+
+                    index += link.length();
+                }
+
+                index++;
             }
+
         }
     }
 }
