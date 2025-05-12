@@ -74,16 +74,49 @@ public class  StringsSecondAssignments {
 
             String[] testCases = {
                 "ahdjskTAA",
-                "ATGahdjskfTAA",
-                "ATGahTAGdjskfTAAasdTGA",
+                "ATGahdjsfTAA",
+                "ATGahTAGdjskfhgTAAasdTGA",
                 "ATGahdfsdaacac",
             };
 
             for ( String test : testCases) {
 
+                System.out.println("The dna string is: " + test);
                 System.out.println(findGene(test));
             }
         
+        }
+
+        public void printAllGenes(String dna) {
+         int lastIndex = 0;
+         while(true) {
+
+             int index = dna.indexOf("ATG", lastIndex);
+                if (index == -1) {
+                    System.out.println("dna done");
+                    break;
+                }
+    
+                String[] stopCodons = {"TAA","TAG","TGA"};
+                ArrayList<Integer> stopIndexes = new ArrayList<>();
+    
+                for (String stopCodon : stopCodons) {
+    
+                    int stopCodonIndex = findStopCodon(dna, index, stopCodon);
+                    if (stopCodonIndex != -1) {
+                        stopIndexes.add(stopCodonIndex);
+                    } 
+                }
+    
+                if (stopIndexes.isEmpty()) {
+                    System.out.println("dna done");
+                    break;
+                }
+    
+                int minIndex = Collections.min(stopIndexes);
+                lastIndex = minIndex;
+                System.out.println(dna.substring(index, minIndex+3));
+         }   
         }
     }
 }   
