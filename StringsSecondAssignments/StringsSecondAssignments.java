@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.nio.Buffer;
 import java.util.ArrayList;
 
+import java.io.File;
+import java.util.Scanner;
+
 public class  StringsSecondAssignments {
 
     public static void main(String args[]) {
@@ -134,6 +137,84 @@ public class  StringsSecondAssignments {
                 lastIndex = minIndex;
                 System.out.println(dna.substring(index, minIndex+3));
          }   
+        }
+    }
+
+    public class Part2 {
+        
+        public int howMany(String stringa, String stringb) {
+
+            int ocurrences = 0;
+            int index = 0;
+
+            while ((index = stringa.indexOf(stringb, index)) != -1) {
+                ocurrences++;
+                index += stringb.length(); ;
+            }
+
+            return ocurrences;
+        }
+
+        public void testHowMany() {
+            System.out.println(howMany("ATGAACGAATTGAATC", "GAA"));
+            System.out.println(howMany("ATAAAA", "AA")); 
+        }
+    }
+
+    public class Part3 {
+
+        StringsSecondAssignments.Part1 pr = new StringsSecondAssignments().new Part1();
+
+        public int countGenes(String dna) {
+            int codons = 0;
+            int lastIndex = 0;
+            while(true) {
+
+                int index = dna.indexOf("ATG", lastIndex);
+                if (index == -1) {
+                    System.out.println("dna done");
+                    break;
+                }
+
+                String[] stopCodons = {"TAA","TAG","TGA"};
+                ArrayList<Integer> stopIndexes = new ArrayList<>();
+
+                for (String stopCodon : stopCodons) {
+
+                    int stopCodonIndex = pr.findStopCodon(dna, index, stopCodon);
+                    if (stopCodonIndex != -1) {
+                        stopIndexes.add(stopCodonIndex);
+                    } 
+                }
+
+                if (stopIndexes.isEmpty()) {
+                    System.out.println("dna done");
+                    break;
+                }
+
+                int minIndex = Collections.min(stopIndexes);
+                lastIndex = minIndex;
+                //System.out.println(dna.substring(index, minIndex+3));
+                codons++;
+            }
+            return codons;
+        }
+
+        public void testCountGenes() {
+
+            File dir = new File("dnaDir");
+            File[] files = dir.listFiles((d, name) -> name.endsWith(".txt"));
+            for (File file : files) {
+                try (Scanner scanner = new Scanner(file)) {
+                    while (scanner.hasNextLine()) {
+                        int n_genes = countGenes(scanner.nextLine());
+                        System.out.println(file.getName() + " has " + n_genes + " genes");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error leyendo" + file.getName());
+                }
+            }
+            
         }
     }
 }   

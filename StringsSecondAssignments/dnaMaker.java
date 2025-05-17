@@ -7,14 +7,17 @@ public class dnaMaker {
 
     public static void main(String[] args) {
 
-        dnaMaker dna = new dnaMaker();
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("dnaString.txt"))) {
+        for (int k = 0; k < 100; k++) {
 
-            for(int i = 0; i < 1000; i++) {
-                dna.writeCodons(writer);
+            dnaMaker dna = new dnaMaker();
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter("dnaDir/dnaString"+k+".txt"))) {
+    
+                for(int i = 0; i < 100000; i++) {
+                    dna.writeCodons(writer);
+                }
+            } catch (IOException e) {
+                System.err.println("Error writing to file: " + e.getMessage());
             }
-        } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
         }
 
     }
