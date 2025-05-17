@@ -1,4 +1,8 @@
 import java.util.Collections;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class  StringsSecondAssignments {
@@ -9,7 +13,17 @@ public class  StringsSecondAssignments {
         //pr.testFindGene();
 
         StringsSecondAssignments.Part1 finddna = new StringsSecondAssignments().new Part1();
-        finddna.printAllGenes("aaaaaTAGaaaaTGATAAaaaTAAaaTAGTAATAGaaaaTAATAAaaaaaaaaATGaaTAATAAaaTGAaaaaATGaaTGAaaTAATGAaTAATGAATGTAGTGAaTAGaaaaaTGAaaaaaaaaTAGaaaaaaaTAAaaaATGATGTAGaaaaaaaaaTAGaaaATGaaaATGaaaaaaaaaaaTGAaaaaATGTAAaaaaTAAaaaATGTAATGAaaaTAGaTAAATGaaaaTGAaaATGaTGAaaaaTGATAGaaaaaaaaaaaaTAGaATGTGAaaaaaaaaaaTAATAGTGAaTGAaaaaTAGaaaaaaaaTGAaaaaaTGAaaaaaaaaaTAAaaaaaaaTAGTGAaTGAaTGAaaaATGaaaaaaTAATGAATGaaaaTAAaaTGAaaaaaaaaaaTAAaaaaaaaaaaaaaTAAaaATGaTAATAAaaaTAGaaaTGAaaaaaaATGTGAaTGAaaaaTAGaTAGaaaaaATGTAGaaTGATAGaaaTGAaaaATGaaaTGATAAaaaaaaaaaaaaaaTGAaaaaaaaATGaTGAaaaaTAGaaaaaaaaaaaaaaTAGaaaaaaaaaATGTAAaATGaaaaaaaaaTAAaaTAGaaaaaaTAGTGAaaaTAGaaaTGAaaaaTAATAGaaaTGAaTAGaTGAaaaaaTAAaaATGaATGaaaaaaaaTGAaaaATGTAGaaaaaaaaaTAATAGTAGaaaaaTGAaaaaaaaaaaaaaaaaTGAaTAAaaaaTAGaaTGATAGaaaaTGATAGTAAaaaATGaaaaaaaaaaaaaTGATAAaaaaaaTAATAGaTGATGATGATAAaTAGaaaTGAaTAATGATAGaaaaaaaaaaaTAAaaTAAaATGaaaATGaaaaaaaaATGTAGTGAaaaaaaaaaaTGAaTAAaaATGaTGAaaaaaaTAGaaaaTGAaaaTAGaaTAGaaaaTAGTAGaaaaaaTGAaaTGATGAaTAGaaaaaTAAaaaTAGTAGTAGaATGTAAaaaaaaaTAGaaaaATGaaTAAaaTAGTAATAATGAaaaaTAAaaTAATAGATGaTAATAGaaaATGaaaaaaTAAaaaaaaaaTAGaATGaaATGaaTGAATGTAGaaATGTGAATGaaaaaaaTAATAGaaTGAaaaaaaaaaaaaaTAAaaaTAAaaaaATGaaaaaaTGAaTAGaaaaaTAGaaaATGTAGaaaaaaaTAGaaaaaTGAaaATGaaaaaaaaaaATGTAAaaaaaaTGATGAaTGAaaaaaaaaATGaTAGaaaaaaaaTAAaaTAAaTGAaTAAaTAGTAATAAaaaaaaaaaTAAATGaaaaaaaaTGAaaaTAGaaaaTGAaTAAaaaaATGaaaaaaaTAAaaaaaaaaaaTAGaaaaaTAAaTAGTGAATGaATGaTGAaaaTGATAGaaaaaTAGaaTAAaaaaaATGATGaaaaaTGAaTAGaaaaaaaTGAaaaTAGaTGAaaTAAaaaaaaTGAaaTGAaATGTAGTGAaaaaaaaaaaaaTGAaa");
+        try (BufferedReader reader = new BufferedReader(new FileReader("dnaString.txt"))) {
+           
+            StringBuilder dnaString = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                dnaString.append(line);
+            }
+            finddna.printAllGenes(dnaString.toString());
+        } catch (IOException e) {
+            System.err.println("Error reading from file: " + e.getMessage());
+        }
         
     }
 
