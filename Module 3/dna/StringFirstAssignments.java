@@ -175,23 +175,27 @@ public class StringFirstAssignments {
         public void printLinks() {
 
             URLResource url = new URLResource("https://www.dukelearntoprogram.com/course2/data/manylinks.html");
-            for (String str : url.lines()) {
-    
-                String lowercaseLine = str.toLowerCase();
-                int index = 0;
-                if ((index = lowercaseLine.indexOf("youtube.com", index)) != -1) {
+            String str = url.asString();
+            String lowercaseLine = str.toLowerCase();
+            int index = 0;
+            while ((index = lowercaseLine.indexOf("youtube.com", index)) != -1) {
 
-                    int linkStartindex = str.lastIndexOf("\"", index)+1;
-                    int linkEndindex = str.indexOf("\"", index);
+                int linkStartindex = str.lastIndexOf("\"", index)+1;
+                int linkEndindex = str.indexOf("\"", index);
 
-                    String link = str.substring(linkStartindex, linkEndindex);
-                    System.out.println(link);
+                int nameStartindex = str.indexOf("\">", index)+3;
+                int nameEndindex = str.indexOf(" </", index);
 
-                    index += link.length();
-                }
+                String link = str.substring(linkStartindex, linkEndindex);
+                String name = str.substring(nameStartindex, nameEndindex);
 
+                System.out.println("link: " + link);
+                System.out.println("name: " + name);
+                
                 index++;
             }
+            //System.out.println(str);
+            
 
         }
     }

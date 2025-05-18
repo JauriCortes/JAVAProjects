@@ -8,28 +8,15 @@ import java.util.ArrayList;
 import java.io.File;
 import java.util.Scanner;
 
+import edu.duke.FileResource;
+
 public class  StringsSecondAssignments {
 
     public static void main(String args[]) {
 
-        StringsSecondAssignments.Part1 pr = new StringsSecondAssignments().new Part1();
-        //pr.testFindGene();
-
-        StringsSecondAssignments.Part1 finddna = new StringsSecondAssignments().new Part1();
-        try (BufferedReader reader = new BufferedReader(new FileReader("dnaString.txt"))) {
-           
-            StringBuilder dnaString = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                dnaString.append(line);
-            }
-            //finddna.printAllGenes(dnaString.toString());
-        } catch (IOException e) {
-            System.err.println("Error reading from file: " + e.getMessage());
-        }
+        StringsSecondAssignments.Part3 countGenes = new StringsSecondAssignments(). new Part3();
+        countGenes.testCountGenes();
         
-        StringsSecondAssignments.Part3 printgenes = new StringsSecondAssignments().new Part3();
-        printgenes.testCountGenes();
     }
 
     public class Part1 {
@@ -196,7 +183,7 @@ public class  StringsSecondAssignments {
 
                 int minIndex = Collections.min(stopIndexes);
                 lastIndex = minIndex;
-                //System.out.println(dna.substring(index, minIndex+3));
+                System.out.println(dna.substring(index, minIndex+3));
                 codons++;
             }
             return codons;
@@ -204,18 +191,11 @@ public class  StringsSecondAssignments {
 
         public void testCountGenes() {
 
-            File dir = new File("dnaDir");
-            File[] files = dir.listFiles();
-            for (File file : files) {
-                try (Scanner scanner = new Scanner(file)) {
-                    while (scanner.hasNextLine()) {
-                        int n_genes = countGenes(scanner.nextLine().toUpperCase());
-                        System.out.println(file.getName() + " has " + n_genes + " genes");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Error leyendo" + file.getName());
-                }
-            }
+            FileResource fr = new FileResource("dnaDir/GRch38dnapart.fa");
+            String lastdna = fr.asString();
+            int n_genes = countGenes(lastdna);
+
+            System.out.println(n_genes + " genes in file");
             
         }
     }
