@@ -94,7 +94,7 @@ public class StringThirdAssignment {
 
                 int index = dna.indexOf("ATG", lastIndex);
                 if (index == -1) {
-                    System.out.println("dna done");
+                    System.out.println("dna done: no more start indexes");
                     break;
                 }
             
@@ -110,12 +110,12 @@ public class StringThirdAssignment {
                 }
             
                 if (stopIndexes.isEmpty()) {
-                    System.out.println("dna done");
+                    System.out.println("dna done: no more stop codons");
                     break;
                 }
 
                 int minIndex = Collections.min(stopIndexes);
-                lastIndex = minIndex;
+                lastIndex = minIndex+3;
                 //System.out.println(dna.substring(index, minIndex+3));
                 sr.add(dna.substring(index, minIndex+3));
             }
@@ -149,33 +149,60 @@ public class StringThirdAssignment {
             return count;
         }
     }
+
+    public  class Part3 {
+        
+        public void processGenes(StorageResource sr) {
+
+            int longerCount = 0;
+            int ratioCount = 0;
+            String longest = "";
+            for (String data : sr.data()) {
+
+                if(data.length() > 60) {
+                    longerCount++;
+                    //System.out.println(data + " Is longer than 60");
+                }
+                
+                StringThirdAssignment.Part2 cgRAtio = new StringThirdAssignment().new Part2();
+                
+                if(cgRAtio.cgRatio(data) > 0.35) {
+                    ratioCount++;
+                    //System.out.println(data + " cgRAtio is higher than 0.35");
+                }
+
+                if(data.length() > longest.length()) {
+
+                    longest = data;
+                }
+            }
+            System.out.println(longerCount + " Strings larger than 60");
+            System.out.println(ratioCount + " Strings with a cgRatio larger than 0.35");
+            System.out.println(longest.length() + " Is the longest gene found");
+        }
+        
+    }
+
     public static void main(String args[]) {
 
         StringThirdAssignment.Part1 pr = new StringThirdAssignment().new Part1();
-        StringThirdAssignment.Part2 cgr = new StringThirdAssignment().new Part2();
-        StringThirdAssignment.Part2 ctg = new StringThirdAssignment().new Part2();
+        StringThirdAssignment.Part2 part2 = new StringThirdAssignment().new Part2();
+        
+        StringThirdAssignment.Part3 part3 = new StringThirdAssignment().new Part3();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("dnaString.txt"))) {
-            
-            StringBuilder dnaString = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                dnaString.append(line);
-            }
+        FileResource fileR = new FileResource("GRch38dnapart.fa");
+        String GRch38dnapart = fileR.asString();
 
-            StorageResource data = pr.getAllGenes(dnaString.toString());
-            float cgRatio = cgr.cgRatio(dnaString.toString());
-            System.out.println(cgRatio);
-            
-            int ctgCount = ctg.countCTG(dnaString.toString());
-            System.out.println(ctgCount);
+        StorageResource data = pr.getAllGenes(GRch38dnapart);
+        int GRsize = data.size();
 
-            for (String gene : data.data()) {
-                //System.out.println(gene);
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading from file: " + e.getMessage());
-        }
+        System.out.println("The size of GRch38dnapart is: " + GRsize);
+
+        part3.processGenes(data);
+
+        int CGTcount = part2.countCTG(GRch38dnapart);
+        System.out.println("CGT appear " + CGTcount + " times");
+
         
     }
 }
