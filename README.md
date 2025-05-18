@@ -1,55 +1,86 @@
-# StringsThirdAssignments
+# Java Programming: Solving Problems with Software – Code Walkthrough
 
-This Java project analyzes DNA sequences to find genes, calculate CG ratios, and count specific codons using the [Duke University `edu.duke` library](https://www.dukelearntoprogram.com/downloads/duke.jar).
-
-## Features
-
-- **Find Stop Codons:** Locates stop codons in DNA sequences.
-- **Find Genes:** Extracts genes based on start and stop codons.
-- **Get All Genes:** Collects all genes from a DNA string.
-- **CG Ratio:** Calculates the ratio of 'C' and 'G' in a DNA string.
-- **Count CTG:** Counts the number of times the codon "CTG" appears.
-- **Process Genes:** Analyzes genes for length and CG ratio.
-
-## Requirements
-
-- Java 8 or higher
-- [`duke.jar`](https://www.dukelearntoprogram.com/downloads/duke.jar) (place in your project directory or `lib` folder)
-
-## Usage
-
-1. **Compile:**
-    ```bash
-    javac -cp .;duke.jar StringsThirdAssignments/StringThirdAssignment.java
-    ```
-    *(On Mac/Linux, use `:` instead of `;` in the classpath)*
-
-2. **Run:**
-    ```bash
-    java -cp .;duke.jar StringsThirdAssignments.StringThirdAssignment
-    ```
-
-3. **Input File:**
-    - Place your DNA file (e.g., `GRch38dnapart.fa`) in the project directory.
-
-## File Structure
-
-- `StringThirdAssignment.java` — Main source file with all logic.
-- `GRch38dnapart.fa` — Example DNA input file.
-- `duke.jar` — Required library for file handling and `StorageResource`.
-
-## Example Output
-
-```
-The size of GRch38dnapart is: 45
-12 Strings larger than 60
-8 Strings with a cgRatio larger than 0.35
-120 Is the longest gene found
-CGT appear 23 times
-```
-
-## Credits
-
-- Based on assignments from Duke University's Java Programming: Solving Problems with Software.
+This repository contains my solutions and notes for the [Java Programming: Solving Problems with Software](https://www.coursera.org/learn/java-programming) course offered by Duke University on Coursera. Below is a module-wise breakdown of the code and concepts covered.
 
 ---
+
+## 📁 Week 1: Fundamentals and Geometry – Working with Shapes
+
+### Key Concepts:
+- **Java Basics**: Introduction to Java syntax, variables, methods, conditionals, and loops.
+- **Object-Oriented Programming**: Understanding classes and objects.
+- **Geometry Computations**: Calculating perimeters, average side lengths, and identifying the longest side of geometric shapes.
+
+### Code Highlights:
+- **`PerimeterAssignmentRunner.java`**: Reads shape data from files and computes geometric properties.
+- **`Shape.java`**: Utilizes the `edu.duke` library to represent geometric shapes.
+
+*Example:* Calculating the perimeter of a shape by iterating over its points and summing the distances between consecutive points.
+
+---
+
+## 📁 Week 2: Strings and DNA – Analyzing Text Data
+
+### Key Concepts:
+- **String Manipulation**: Using Java's `String` class methods to process textual data.
+- **Biological Data Analysis**: Identifying genes within DNA sequences by locating start and stop codons.
+- **Control Structures**: Implementing loops and conditionals to parse and analyze strings.
+
+### Code Highlights:
+- **`Part1.java`**: Finds genes in DNA sequences by searching for specific codon patterns.
+- **`Part2.java`**: Enhances gene-finding logic with additional checks and conditions.
+- **`Part3.java`**: Analyzes the ratio of CG content in DNA and counts occurrences of specific codons.
+
+*Example:* Extracting all gene sequences from a DNA string that start with "ATG" and end with "TAA", "TAG", or "TGA".
+
+---
+
+## 📁 Week 3: CSV Files and Basic Statistics – Data Analysis
+
+### Key Concepts:
+- **CSV Parsing**: Reading and processing data from CSV files using the `org.apache.commons.csv` library.
+- **Data Analysis**: Computing statistics like maximum temperature, average temperature, and humidity levels.
+- **File Handling**: Iterating over multiple files to aggregate and compare data.
+
+### Code Highlights:
+- **`CSVWeather.java`**: Processes weather data to find maximum temperatures and average humidity.
+- **`CSVMax.java`**: Identifies the file with the highest temperature among multiple datasets.
+
+*Example:* Determining the day with the highest temperature from a set of CSV files containing daily weather records.
+
+---
+
+## 📁 Week 4: Mini-Project – Baby Names Analysis
+
+### Key Concepts:
+- **Data Aggregation**: Summing and comparing data across multiple records.
+- **Ranking and Trends**: Determining the popularity rank of baby names over the years.
+- **Modular Programming**: Building reusable methods to perform specific tasks.
+
+### Code Highlights:
+- **`BabyNames.java`**: Analyzes baby name data to find name rankings, total births, and year-over-year trends.
+- **`TotalBirths.java`**: Calculates the total number of births and unique names from a dataset.
+
+*Example:* Finding out what a person's name would have been in a different year based on the popularity rank of their original name.
+
+---
+
+## 🛠️ Tools and Libraries
+
+- **Java Development Kit (JDK)**: Ensure you have JDK installed to compile and run Java programs.
+- **BlueJ IDE**: Recommended for this course; a user-friendly environment for beginners.
+- **External Libraries**:
+  - `edu.duke`: A custom library provided by Duke University for educational purposes.
+  - `org.apache.commons.csv`: Used for parsing and handling CSV files.
+
+These libraries are included in the course's custom BlueJ setup. If you're using a different environment, ensure these dependencies are properly configured.
+
+---
+
+## 📄 License
+
+This repository is intended for educational purposes. Please ensure adherence to Coursera's [Honor Code](https://www.coursera.org/about/honorcode) when using or referencing these solutions.
+
+---
+
+*Happy Coding!*
