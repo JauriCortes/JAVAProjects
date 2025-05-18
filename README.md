@@ -16,7 +16,7 @@ This repository contains my solutions and notes for the [Java Programming: Solvi
 
 ---
 
-## 📁 Week 1: Fundamentals and Geometry – Working with Shapes
+## 📁 Module 1 and 2: Fundamentals and Geometry – Working with Shapes
 
 ### Key Concepts:
 - **Java Basics**: Introduction to Java syntax, variables, methods, conditionals, and loops.
@@ -31,7 +31,7 @@ This repository contains my solutions and notes for the [Java Programming: Solvi
 
 ---
 
-## 📁 Week 2: Strings and DNA – Analyzing Text Data
+## 📁 Module 3: Strings and DNA – Analyzing Text Data
 
 ### Key Concepts:
 - **String Manipulation**: Using Java's `String` class methods to process textual data.
@@ -47,7 +47,7 @@ This repository contains my solutions and notes for the [Java Programming: Solvi
 
 ---
 
-## 📁 Week 3: CSV Files and Basic Statistics – Data Analysis
+## 📁 Module 4: CSV Files and Basic Statistics – Data Analysis
 
 ### Key Concepts:
 - **CSV Parsing**: Reading and processing data from CSV files using the `org.apache.commons.csv` library.
@@ -62,7 +62,7 @@ This repository contains my solutions and notes for the [Java Programming: Solvi
 
 ---
 
-## 📁 Week 4: Mini-Project – Baby Names Analysis
+## 📁 Module 5: Mini-Project – Baby Names Analysis
 
 ### Key Concepts:
 - **Data Aggregation**: Summing and comparing data across multiple records.
