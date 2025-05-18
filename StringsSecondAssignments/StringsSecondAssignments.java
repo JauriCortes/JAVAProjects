@@ -23,11 +23,13 @@ public class  StringsSecondAssignments {
             while ((line = reader.readLine()) != null) {
                 dnaString.append(line);
             }
-            finddna.printAllGenes(dnaString.toString());
+            //finddna.printAllGenes(dnaString.toString());
         } catch (IOException e) {
             System.err.println("Error reading from file: " + e.getMessage());
         }
         
+        StringsSecondAssignments.Part3 printgenes = new StringsSecondAssignments().new Part3();
+        printgenes.testCountGenes();
     }
 
     public class Part1 {
@@ -203,11 +205,11 @@ public class  StringsSecondAssignments {
         public void testCountGenes() {
 
             File dir = new File("dnaDir");
-            File[] files = dir.listFiles((d, name) -> name.endsWith(".txt"));
+            File[] files = dir.listFiles();
             for (File file : files) {
                 try (Scanner scanner = new Scanner(file)) {
                     while (scanner.hasNextLine()) {
-                        int n_genes = countGenes(scanner.nextLine());
+                        int n_genes = countGenes(scanner.nextLine().toUpperCase());
                         System.out.println(file.getName() + " has " + n_genes + " genes");
                     }
                 } catch (Exception e) {

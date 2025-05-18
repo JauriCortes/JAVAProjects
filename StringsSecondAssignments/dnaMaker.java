@@ -7,7 +7,7 @@ public class dnaMaker {
 
     public static void main(String[] args) {
 
-        for (int k = 0; k < 100; k++) {
+        for (int k = 0; k < 1; k++) {
 
             dnaMaker dna = new dnaMaker();
             try(BufferedWriter writer = new BufferedWriter(new FileWriter("dnaDir/dnaString"+k+".txt"))) {
@@ -34,7 +34,10 @@ public class dnaMaker {
             writer.write(codons[randomCodon]);
         } 
         else {
-            writer.write("a");;
+            String randomChars[] = {"A", "T", "G", "C"};
+            int randomRandomChar = random.nextInt(4);
+            
+            writer.write(randomChars[randomRandomChar]);;
         }
     }
 }
