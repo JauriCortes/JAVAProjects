@@ -4,6 +4,18 @@ This repository contains my solutions and notes for the [Java Programming: Solvi
 
 ---
 
+**How to Run:**
+1. Compile:
+    ```bash
+    javac -cp ../lib/edu.jar {filename}.java
+    ```
+2. Run:
+    ```bash
+    java -cp ../lib/edu.jar {filename}
+    ```
+
+---
+
 ## 📁 Week 1: Fundamentals and Geometry – Working with Shapes
 
 ### Key Concepts:
