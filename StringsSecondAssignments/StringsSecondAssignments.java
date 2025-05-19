@@ -9,7 +9,7 @@ public class  StringsSecondAssignments {
     public static void main(String args[]) {
 
         StringsSecondAssignments.Part1 pr = new StringsSecondAssignments().new Part1();
-        //pr.testFindGene();
+        pr.testFindGene();
 
         StringsSecondAssignments.Part1 finddna = new StringsSecondAssignments().new Part1();
         //finddna.printAllGenes("aaaaaTAGaaaaTGATAAaaaTAAaaTAGTAATAGaaaaTAATAAaaaaaaaaATGaaTAATAAaaTGAaaaaATGaaTGAaaTAATGAaTAATGAATGTAGTGAaTAGaaaaaTGAaaaaaaaaTAGaaaaaaaTAAaaaATGATGTAGaaaaaaaaaTAGaaaATGaaaATGaaaaaaaaaaaTGAaaaaATGTAAaaaaTAAaaaATGTAATGAaaaTAGaTAAATGaaaaTGAaaATGaTGAaaaaTGATAGaaaaaaaaaaaaTAGaATGTGAaaaaaaaaaaTAATAGTGAaTGAaaaaTAGaaaaaaaaTGAaaaaaTGAaaaaaaaaaTAAaaaaaaaTAGTGAaTGAaTGAaaaATGaaaaaaTAATGAATGaaaaTAAaaTGAaaaaaaaaaaTAAaaaaaaaaaaaaaTAAaaATGaTAATAAaaaTAGaaaTGAaaaaaaATGTGAaTGAaaaaTAGaTAGaaaaaATGTAGaaTGATAGaaaTGAaaaATGaaaTGATAAaaaaaaaaaaaaaaTGAaaaaaaaATGaTGAaaaaTAGaaaaaaaaaaaaaaTAGaaaaaaaaaATGTAAaATGaaaaaaaaaTAAaaTAGaaaaaaTAGTGAaaaTAGaaaTGAaaaaTAATAGaaaTGAaTAGaTGAaaaaaTAAaaATGaATGaaaaaaaaTGAaaaATGTAGaaaaaaaaaTAATAGTAGaaaaaTGAaaaaaaaaaaaaaaaaTGAaTAAaaaaTAGaaTGATAGaaaaTGATAGTAAaaaATGaaaaaaaaaaaaaTGATAAaaaaaaTAATAGaTGATGATGATAAaTAGaaaTGAaTAATGATAGaaaaaaaaaaaTAAaaTAAaATGaaaATGaaaaaaaaATGTAGTGAaaaaaaaaaaTGAaTAAaaATGaTGAaaaaaaTAGaaaaTGAaaaTAGaaTAGaaaaTAGTAGaaaaaaTGAaaTGATGAaTAGaaaaaTAAaaaTAGTAGTAGaATGTAAaaaaaaaTAGaaaaATGaaTAAaaTAGTAATAATGAaaaaTAAaaTAATAGATGaTAATAGaaaATGaaaaaaTAAaaaaaaaaTAGaATGaaATGaaTGAATGTAGaaATGTGAATGaaaaaaaTAATAGaaTGAaaaaaaaaaaaaaTAAaaaTAAaaaaATGaaaaaaTGAaTAGaaaaaTAGaaaATGTAGaaaaaaaTAGaaaaaTGAaaATGaaaaaaaaaaATGTAAaaaaaaTGATGAaTGAaaaaaaaaATGaTAGaaaaaaaaTAAaaTAAaTGAaTAAaTAGTAATAAaaaaaaaaaTAAATGaaaaaaaaTGAaaaTAGaaaaTGAaTAAaaaaATGaaaaaaaTAAaaaaaaaaaaTAGaaaaaTAAaTAGTGAATGaATGaTGAaaaTGATAGaaaaaTAGaaTAAaaaaaATGATGaaaaaTGAaTAGaaaaaaaTGAaaaTAGaTGAaaTAAaaaaaaTGAaaTGAaATGTAGTGAaaaaaaaaaaaaTGAaa");
@@ -18,7 +18,7 @@ public class  StringsSecondAssignments {
         //howMany.testHowMany();
 
         StringsSecondAssignments.Part3 howManyGenes = new StringsSecondAssignments().new Part3();
-        howManyGenes.testCountGenes();
+        //howManyGenes.testCountGenes();
     }
 
     public class Part1 {
@@ -84,10 +84,7 @@ public class  StringsSecondAssignments {
         public void testFindGene() {
 
             String[] testCases = {
-                "ahdjskTAA",
-                "ATGahdjsfTAA",
-                "ATGahTAGdjskfhgTAAasdTGA",
-                "ATGahdfsdaacac",
+                "AATGCTAACTAGCTGACTAAT",
             };
 
             for ( String test : testCases) {
