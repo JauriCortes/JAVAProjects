@@ -1,4 +1,7 @@
 import edu.duke.*;
+
+import java.util.ArrayList;
+
 import org.apache.commons.csv.*;
 
 class exportsAssignment {
@@ -16,6 +19,9 @@ class exportsAssignment {
 
         String info = countryInfo(parser, "Namibia");
         System.out.println(info);
+
+        String exporter = listExportersTwoProducts(parser, "gold", "diamonds");
+        System.out.println(exporter);
     }
 
     public String countryInfo(CSVParser parser, String country) {
@@ -35,5 +41,22 @@ class exportsAssignment {
 
         return("NOT FOUND");
         
+    }
+
+    public String listExportersTwoProducts(CSVParser parser, String exportItem1, String exportItem2) {
+
+        ArrayList<String> exporters = new ArrayList<>();
+        for(CSVRecord record: parser) {
+            String exports = record.get("Exports");
+
+            if(exports.contains(exportItem1) && exports.contains(exportItem2)) {
+
+                String country = record.get("Country");
+                exporters.add(country);
+            }
+        }
+        String exportersString = String.join(", ", exporters);
+        return(exportersString);
+
     }
 }
