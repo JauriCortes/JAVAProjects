@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.commons.csv.*;
 
-class exportsAssignment {
+public class exportsAssignment {
 
     public static void main(String[] args) {
         
