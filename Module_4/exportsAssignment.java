@@ -19,9 +19,11 @@ public class exportsAssignment {
 
         String info = countryInfo(parser, "Namibia");
         System.out.println(info);
-
+        parser = fr.getCSVParser();
+        
         String exporter = listExportersTwoProducts(parser, "gold", "diamonds");
         System.out.println(exporter);
+        parser = fr.getCSVParser();
     }
 
     public String countryInfo(CSVParser parser, String country) {
@@ -45,6 +47,7 @@ public class exportsAssignment {
 
     public String listExportersTwoProducts(CSVParser parser, String exportItem1, String exportItem2) {
 
+        
         ArrayList<String> exporters = new ArrayList<>();
         for(CSVRecord record: parser) {
             String exports = record.get("Exports");
