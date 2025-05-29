@@ -24,6 +24,13 @@ public class exportsAssignment {
         String exporter = listExportersTwoProducts(parser, "gold", "diamonds");
         System.out.println(exporter);
         parser = fr.getCSVParser();
+        
+        int number_exporters = numberOfExporters(parser,"diamonds");
+        System.out.println(number_exporters);
+        parser = fr.getCSVParser();
+
+        bigExporters(parser,"$999,999,999");
+        parser = fr.getCSVParser();
     }
 
     public String countryInfo(CSVParser parser, String country) {
@@ -61,5 +68,36 @@ public class exportsAssignment {
         String exportersString = String.join(", ", exporters);
         return(exportersString);
 
+    }
+
+    public int numberOfExporters(CSVParser parser, String exportItem) {
+
+        int counter = 0;
+        for(CSVRecord record: parser) {
+
+            String exports = record.get("Exports");
+
+            if(exports.contains(exportItem)) {
+
+                counter++;
+            }
+        }
+
+        return counter;
+    } 
+    
+    public void bigExporters(CSVParser parser, String amount) {
+
+        int longer = amount.length();
+        for (CSVRecord record: parser) {
+
+            String value = record.get("Value (dollars)");
+            int record_longer = value.length();
+
+            if(record_longer>longer) {
+                String name = record.get("Country");
+                System.out.println(name + " " + value);
+            }
+        }
     }
 }
