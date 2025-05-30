@@ -21,11 +21,11 @@ public class exportsAssignment {
         System.out.println(info);
         parser = fr.getCSVParser();
         
-        String exporter = listExportersTwoProducts(parser, "gold", "diamonds");
+        String exporter = listExportersTwoProducts(parser, "cotton", "flowers");
         System.out.println(exporter);
         parser = fr.getCSVParser();
         
-        int number_exporters = numberOfExporters(parser,"sugar");
+        int number_exporters = numberOfExporters(parser,"cocoa");
         System.out.println(number_exporters);
         parser = fr.getCSVParser();
 
