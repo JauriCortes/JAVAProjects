@@ -14,10 +14,10 @@ public class exportsAssignment {
 
     public void tester() {
 
-        FileResource fr = new FileResource("exports/exports_small.csv");
+        FileResource fr = new FileResource("exports/exportdata.csv");
         CSVParser parser = fr.getCSVParser();
 
-        String info = countryInfo(parser, "Namibia");
+        String info = countryInfo(parser, "Nauru");
         System.out.println(info);
         parser = fr.getCSVParser();
         
@@ -25,11 +25,11 @@ public class exportsAssignment {
         System.out.println(exporter);
         parser = fr.getCSVParser();
         
-        int number_exporters = numberOfExporters(parser,"diamonds");
+        int number_exporters = numberOfExporters(parser,"sugar");
         System.out.println(number_exporters);
         parser = fr.getCSVParser();
 
-        bigExporters(parser,"$999,999,999");
+        bigExporters(parser,"$999,999,999,999");
         parser = fr.getCSVParser();
     }
 
